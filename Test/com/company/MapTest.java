@@ -5,7 +5,7 @@ import java.util.*;
 import org.junit.Test;
 
 public class MapTest {
-	@Test
+/*	@Test
 	public void findPath_returns_src_and_dest_if_there_is_a_direct_path_between_src_and_dest (){
 		Map map = new Map();
 		map.setup();
@@ -39,6 +39,7 @@ public class MapTest {
 		assertEquals("Bangalore",stations.get(4));
 	}
 
+
 	@Test
 	public void addPath_adds_a_direct_path_from_given_src_to_dest (){
 		Map map = new Map();
@@ -55,4 +56,31 @@ public class MapTest {
 		assertEquals(stations.get(1),reversed.get(0));
 		assertEquals(stations.get(0),reversed.get(1));
 	}
+	*/
+    @Test
+    public void findPath_returns_all_paths_from_Bangalore_to_Dubai (){
+        Map map = new Map();
+
+        map.addPath("Bangalore","Singapore");
+        map.addPath("Singapore","Dubai");
+        map.addPath("Bangalore","Tokyo");
+        map.addPath("Tokyo","Dubai");
+        List<List<String>> allPaths = map.findPath("Bangalore", "Dubai");
+        List<String> path1 = allPaths.get(0);
+        List<String> path2 = allPaths.get(1);
+        assertEquals("Bangalore", path1.get(0));
+        assertEquals("Tokyo", path1.get(1));
+        assertEquals("Dubai",path1.get(2));
+        assertEquals("Bangalore", path2.get(0));
+        assertEquals("Singapore",path2.get(1));
+        assertEquals("Dubai",path2.get(2));
+    }
+
+    @Test
+    public void findPath_returns_all_paths_from_Bangalore_to_Tokyo (){
+        Map map = new Map();
+        map.setup();
+        System.out.println(map);
+        List<List<String>> allPaths = map.findPath("Bangalore", "Tokyo");
+    }
 }

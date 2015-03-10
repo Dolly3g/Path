@@ -5,16 +5,26 @@ import java.util.*;
 
 class Map {
 	Set<Path> paths;
+    List<List<String>> allPathsFound;
 
 	public Map() {
-		paths = new HashSet<Path>();
+        paths = new HashSet<Path>();
+        allPathsFound = new LinkedList<List<String>>();
 	}
 
-    public List<String> findPath(String src, String dest) {
+    public List<List<String>> findPath(String src, String dest) {
         List<String> stations = new LinkedList<String>();
-        if(!findPath(src,dest,stations))
-            stations = null;
-        return stations;
+        List<String> visited = new LinkedList<String>();
+        while(stations!=null){
+            if(!findPath(src, dest, stations,visited))
+                stations = null;
+            else{
+                allPathsFound.add(new LinkedList<String>(stations));
+                stations.clear();
+            }
+        }
+        System.out.println(allPathsFound);
+        return allPathsFound;
     }
 
     public boolean contains(String src,String dest){
@@ -26,7 +36,7 @@ class Map {
         return false;
     }
 
-    public boolean findPath(String src, String dest, List<String> stations) {
+    public boolean findPath(String src, String dest, List<String> stations,List<String> visited) {
         if(stations.contains(src)) {
             return false;
         }
@@ -37,8 +47,9 @@ class Map {
         }
 
         for(Path p : paths) {
-            if(p.src.equals(src)) {
-                if (findPath(p.dest, dest, stations)) {
+            if(p.src.equals(src) && visited.indexOf(p.dest) == -1) {
+                visited.add(p.dest);
+                if (findPath(p.dest, dest, stations,visited)) {
                     return true;
                 }
             }
@@ -46,7 +57,7 @@ class Map {
 
         for(Path p : paths) {
             if(p.dest.equals(src)) {
-                if(findPath(p.src, dest, stations)){
+                if(findPath(p.src, dest, stations,visited)){
                     return true;
                 }
                 else {

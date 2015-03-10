@@ -14,7 +14,7 @@ public class FileProcessorTest {
         FileProcessor fp = null;
         fp = new FileProcessor("paths.txt");
         Map map = fp.convertPathFileToMap();
-        assertEquals("[Singapore->Seoul][Singapore->Dubai][Beijing->Tokyo][Bangalore->Singapore][Seoul->Beijing]",map.toString());
+        assertEquals("Singapore->Seoul\nSingapore->Dubai\nBeijing->Tokyo\nBangalore->Singapore\nSeoul->Beijing\n",map.toString());
     }
 
     @Test
