@@ -1,5 +1,6 @@
 package com.company;
 
+import org.omg.CORBA.ARG_OUT;
 import java.util.*;
 
 class Map {
@@ -9,41 +10,42 @@ class Map {
 		paths = new HashSet<Path>();
 	}
 
-    public List<String> hasPath(String src, String dest) {
-        boolean hasPath;
+    public List<String> findPath(String src, String dest) {
         List<String> stations = new LinkedList<String>();
-
-        hasPath = findPath(src,dest,stations);
+        findPath(src,dest,stations);
         return stations;
     }
 
-    public boolean findPath(String src, String dest, List<String> stations) {
-        if(stations.contains(src))
-            return false;
-
-        stations.add(src);
-
+    public boolean contains(String src,String dest){
         for(Path p : paths) {
             if(p.equals(new Path(src,dest)) || p.equals(new Path(dest,src))) {
-                stations.add(dest);
                 return true;
             }
+        }
+        return false;
+    }
+
+    public boolean findPath(String src, String dest, List<String> stations) {
+        if(stations.contains(src)) {
+            return false;
+        }
+        stations.add(src);
+        if(contains(src,dest)){
+            stations.add(dest);
+            return true;
         }
 
         for(Path p : paths) {
             if(p.src.equals(src)) {
-                boolean hasPath = this.findPath(p.dest, dest, stations);
-                if (hasPath) {
+                if (findPath(p.dest, dest, stations)) {
                     return true;
                 }
-
             }
         }
 
         for(Path p : paths) {
             if(p.dest.equals(src)) {
-                boolean hasPath = this.findPath(p.src,dest,stations);
-                if(hasPath){
+                if(findPath(p.src, dest, stations)){
                     return true;
                 }
                 else {
@@ -51,7 +53,6 @@ class Map {
                 }
             }
         }
-
         return false;
     }
 
@@ -80,7 +81,7 @@ class Map {
 		return;
 	}
 
-	public static List<String> reversePath(List<String> stations) {
+    public static List<String> reversePath(List<String> stations) {
 		List<String> reversed = new LinkedList<String>();
 		int size = stations.size();
 		for(String station : stations) {
@@ -96,4 +97,23 @@ class Map {
 		this.addPath("Seoul","Beijing");
 		this.addPath("Beijing","Tokyo");
 	}
+
+    public String toString(){
+        String map = "";
+        for(Path p : paths){
+            map += p.toString() + "\n";
+        }
+        return map;
+    }
+
+    public String formatPath(List<String> stations, java.util.Map<String,String> cityCountryMap){
+        //String path = "";
+        String []path = new String[stations.size()];
+        int count = 0;
+        for (String station : stations){
+            //path += station + "[" + cityCountryMap.get(station) + "]" +  "->";
+            path[count++] = station + "[" + cityCountryMap.get(station) + "]";
+        }
+        return String.join("->", path);
+    }
 }

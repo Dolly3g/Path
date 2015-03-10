@@ -1,0 +1,5 @@
+Bangalore-Singapore
+Singapore-Dubai
+Singapore-Seoul
+Seoul-Beijing
+Beijing-Tokyo

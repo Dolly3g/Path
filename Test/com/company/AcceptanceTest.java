@@ -6,28 +6,28 @@ import org.junit.Test;
 
 public class AcceptanceTest {
 	@Test
-	public void hasPath_returns_Bangalore_and_Singapore_for_Bangalore_to_Singapore (){
+	public void findPath_returns_Bangalore_and_Singapore_for_Bangalore_to_Singapore (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Bangalore","Singapore");
+		List<String> stations = map.findPath("Bangalore","Singapore");
 		assertEquals("Bangalore",stations.get(0));
         assertEquals("Singapore",stations.get(1));
 	}
 
     @Test
-    public void hasPath_returns_Singapore_and_Bangalore_for_Singapore_to_Bangalore (){
+    public void findPath_returns_Singapore_and_Bangalore_for_Singapore_to_Bangalore (){
         Map map = new Map();
         map.setup();
-        List<String> stations = map.hasPath("Singapore","Bangalore");
+        List<String> stations = map.findPath("Singapore","Bangalore");
         assertEquals("Singapore",stations.get(0));
         assertEquals("Bangalore",stations.get(1));
     }
 
 	@Test
-	public void hasPath_returns_Bangalore_Singapore_Seoul_Beijing_Tokyo_for_Bangalore_to_Tokyo (){
+	public void findPath_returns_Bangalore_Singapore_Seoul_Beijing_Tokyo_for_Bangalore_to_Tokyo (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Bangalore","Tokyo");
+		List<String> stations = map.findPath("Bangalore","Tokyo");
 		assertEquals("Bangalore",stations.get(0));
 		assertEquals("Singapore",stations.get(1));
 		assertEquals("Seoul",stations.get(2));
@@ -36,10 +36,10 @@ public class AcceptanceTest {
 	}
 
 	@Test
-	public void hasPath_returns_reversed_Path_for_Tokyo_to_Bangalore (){
+	public void findPath_returns_reversed_Path_for_Tokyo_to_Bangalore (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Tokyo","Bangalore");
+		List<String> stations = map.findPath("Tokyo","Bangalore");
 		assertEquals("Tokyo",stations.get(0));
 		assertEquals("Beijing",stations.get(1));
 		assertEquals("Seoul",stations.get(2));
@@ -48,10 +48,10 @@ public class AcceptanceTest {
 	}
 
     @Test
-    public void hasPath_returns_path_for_Tokyo_to_Dubai (){
+    public void findPath_returns_path_for_Tokyo_to_Dubai (){
         Map map = new Map();
         map.setup();
-        List<String> stations = map.hasPath("Tokyo","Dubai");
+        List<String> stations = map.findPath("Tokyo","Dubai");
         assertEquals("Tokyo",stations.get(0));
         assertEquals("Beijing",stations.get(1));
         assertEquals("Seoul",stations.get(2));
@@ -60,10 +60,10 @@ public class AcceptanceTest {
     }
 
     @Test
-    public void hasPath_returns_path_for_Beijing_to_Dubai (){
+    public void findPath_returns_path_for_Beijing_to_Dubai (){
         Map map = new Map();
         map.setup();
-        List<String> stations = map.hasPath("Beijing","Dubai");
+        List<String> stations = map.findPath("Beijing","Dubai");
         assertEquals("Beijing",stations.get(0));
         assertEquals("Seoul",stations.get(1));
         assertEquals("Singapore",stations.get(2));

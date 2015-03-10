@@ -6,19 +6,19 @@ import org.junit.Test;
 
 public class MapTest {
 	@Test
-	public void hasPath_returns_src_and_dest_if_there_is_a_direct_path_between_src_and_dest (){
+	public void findPath_returns_src_and_dest_if_there_is_a_direct_path_between_src_and_dest (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Bangalore","Singapore");
+		List<String> stations = map.findPath("Bangalore","Singapore");
 		assertEquals("Bangalore",stations.get(0));
 		assertEquals("Singapore",stations.get(1));
 	}
 
 	@Test
-	public void hasPath_returns_full_indirect_path_if_path_exists_between_src_and_dest (){
+	public void findPath_returns_full_indirect_path_if_path_exists_between_src_and_dest (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Bangalore","Tokyo");
+		List<String> stations = map.findPath("Bangalore","Tokyo");
 		assertEquals("Bangalore",stations.get(0));
 		assertEquals("Singapore",stations.get(1));
 		assertEquals("Seoul",stations.get(2));
@@ -28,10 +28,10 @@ public class MapTest {
 	}
 
 	@Test
-	public void hasPath_returns_reverse_indirect_path_if_path_exists_between_src_and_dest (){
+	public void findPath_returns_reverse_indirect_path_if_path_exists_between_src_and_dest (){
 		Map map = new Map();
 		map.setup();
-		List<String> stations = map.hasPath("Tokyo","Bangalore");
+		List<String> stations = map.findPath("Tokyo","Bangalore");
 		assertEquals("Tokyo",stations.get(0));
 		assertEquals("Beijing",stations.get(1));
 		assertEquals("Seoul",stations.get(2));
@@ -43,7 +43,7 @@ public class MapTest {
 	public void addPath_adds_a_direct_path_from_given_src_to_dest (){
 		Map map = new Map();
 		map.addPath("Bangalore","Singapore");
-		List<String> stations = map.hasPath("Bangalore","Singapore");
+		List<String> stations = map.findPath("Bangalore","Singapore");
 	}
 
 	@Test

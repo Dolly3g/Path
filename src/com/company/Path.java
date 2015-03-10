@@ -1,5 +1,8 @@
 package com.company;
 
+import java.util.HashMap;
+import java.util.List;
+
 class Path {
 	String src;
 	String dest;
@@ -19,7 +22,15 @@ class Path {
 		return p.src.equals(src) && p.dest.equals(dest);
 	}
 
+//    public java.util.Map<String,String> attachCitiesToCountries(List<String> stations,java.util.Map<String,String> cityCountryMap){
+//        java.util.Map<String,String> map = new HashMap<String, String>();
+//        for (String station : stations){
+//            map.put(station,cityCountryMap.get(station));
+//        }
+//        return map;
+//    }
+
 	public String toString(){
-		return src +" >>>>>>> "+dest;
+        return src + "->" + dest;
 	}
 }
