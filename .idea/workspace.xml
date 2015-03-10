@@ -2,36 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdeadb63-b46a-4b28-bbc5-878399ccb5bc" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Main.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Map.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Path.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Paths.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Printer.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/ArgsMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/com/company/ArgsMapperTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/City.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/FileProcessor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/com/company/FileProcessorTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/company/File_Reader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/cities.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/defaultCities.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/defaultPaths.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/dollyg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/paths.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\out\production\Path\com\company\Main.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Main.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Path/com/company/AcceptanceTest.class" afterPath="$PROJECT_DIR$/out/test/Path/com/company/AcceptanceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Path/com/company/Map.class" afterPath="$PROJECT_DIR$/out/production/Path/com/company/Map.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/Path/com/company/MapTest.class" afterPath="$PROJECT_DIR$/out/test/Path/com/company/MapTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Path/com/company/Path.class" afterPath="$PROJECT_DIR$/out/production/Path/com/company/Path.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Path/com/company/Paths.class" afterPath="$PROJECT_DIR$/out/production/Path/com/company/Paths.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/com/company/AcceptanceTest.java" afterPath="$PROJECT_DIR$/Test/com/company/AcceptanceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Map.java" afterPath="$PROJECT_DIR$/src/com/company/Map.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Test/com/company/MapTest.java" afterPath="$PROJECT_DIR$/Test/com/company/MapTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Path.java" afterPath="$PROJECT_DIR$/src/com/company/Path.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/company/Paths.java" afterPath="$PROJECT_DIR$/src/com/company/Paths.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Main.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Map.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Path.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Paths.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dollyg\IdeaProjects\Path\src\com\company\Printer.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Path.iws" />
@@ -168,6 +143,7 @@
         <option value="Dolly3g" />
       </list>
     </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -608,6 +584,13 @@
       <option name="number" value="Default" />
       <updated>1425636543253</updated>
     </task>
+    <task id="LOCAL-00001" summary="version 5 done.">
+      <created>1425967666175</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1425967666175</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
