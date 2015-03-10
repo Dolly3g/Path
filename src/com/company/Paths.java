@@ -29,7 +29,10 @@ public class Paths {
         }
 
         List<String> stations = map.findPath(argsMap.get("src"),argsMap.get("dest"));
-        System.out.println(stations);
+        if(stations == null){
+            System.out.println("No Path Found between " + argsMap.get("src") + " and " + argsMap.get("dest")) ;
+            return;
+        }
         System.out.println(map.formatPath(stations, cityCountryMap));
 
 	}

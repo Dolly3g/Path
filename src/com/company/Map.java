@@ -12,7 +12,8 @@ class Map {
 
     public List<String> findPath(String src, String dest) {
         List<String> stations = new LinkedList<String>();
-        findPath(src,dest,stations);
+        if(!findPath(src,dest,stations))
+            stations = null;
         return stations;
     }
 
@@ -96,6 +97,7 @@ class Map {
 		this.addPath("Singapore","Dubai");
 		this.addPath("Seoul","Beijing");
 		this.addPath("Beijing","Tokyo");
+        this.addPath("Chennai","Rajasthan");
 	}
 
     public String toString(){
@@ -107,11 +109,9 @@ class Map {
     }
 
     public String formatPath(List<String> stations, java.util.Map<String,String> cityCountryMap){
-        //String path = "";
         String []path = new String[stations.size()];
         int count = 0;
         for (String station : stations){
-            //path += station + "[" + cityCountryMap.get(station) + "]" +  "->";
             path[count++] = station + "[" + cityCountryMap.get(station) + "]";
         }
         return String.join("->", path);
