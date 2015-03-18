@@ -1,6 +1,5 @@
 package com.company;
 
-import org.omg.CORBA.ARG_OUT;
 import java.util.*;
 
 class Map {
@@ -140,6 +139,17 @@ class Map {
             map += p.toString() + "\n";
         }
         return map;
+    }
+
+
+
+    public String formatAllPaths(List<List<String>> allPaths, java.util.Map<String, String> cityCountryMap){
+        int count = 1;
+        String result = "";
+        for (List<String> path : allPaths){
+            result += count++ + ". " + formatPath(path, cityCountryMap) + "\n";
+        }
+        return result;
     }
 
     public String formatPath(List<String> stations, java.util.Map<String,String> cityCountryMap){

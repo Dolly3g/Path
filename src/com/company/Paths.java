@@ -1,4 +1,3 @@
-/*
 package com.company;
 
 import java.util.*;
@@ -29,13 +28,12 @@ public class Paths {
             return;
         }
 
-        List<String> stations = map.findPath(argsMap.get("src"),argsMap.get("dest"));
-        if(stations == null){
+        List<List<String>> allPaths = map.findPath(argsMap.get("src"), argsMap.get("dest"));
+        if(allPaths.size() == 0){
             System.out.println("No Path Found between " + argsMap.get("src") + " and " + argsMap.get("dest")) ;
             return;
         }
-        System.out.println(map.formatPath(stations, cityCountryMap));
+        System.out.println(map.formatAllPaths(allPaths, cityCountryMap));
 
 	}
 }
-*/
