@@ -12,18 +12,28 @@ class Map {
         allPathsFound = new LinkedList<List<String>>();
 	}
 
-    public List<List<String>> findPath(String src, String dest) {
-        List<String> stations = new LinkedList<String>();
-        List<String> visited = new LinkedList<String>();
-        while(stations!=null){
-            if(!findPath(src, dest, stations,visited))
-                stations = null;
-            else{
-                allPathsFound.add(new LinkedList<String>(stations));
-                stations.clear();
+    private void fill(){
+        int count = 0;
+        List<String> path1= allPathsFound.get(0);
+        for(List<String> path : allPathsFound) {
+            if(allPathsFound.get(0) == path) {
+                continue;
+            }
+            String src = path.get(0);
+            for(String city : path1){
+                if(city!= src)
+                    path.add(count++,city);
+                else
+                    break;
             }
         }
-        System.out.println(allPathsFound);
+    }
+
+    public List<List<String>> findPath(String src, String dest) {
+        List<String> stations = new LinkedList<String>();
+        stations = findPath(src, dest, stations);
+        if(allPathsFound.size() != 0)
+            fill();
         return allPathsFound;
     }
 
@@ -36,36 +46,57 @@ class Map {
         return false;
     }
 
-    public boolean findPath(String src, String dest, List<String> stations,List<String> visited) {
+    public List<String> findPath(String src, String dest, List<String> stations) {
+        List<String> visitedCities = new LinkedList<String>();
         if(stations.contains(src)) {
-            return false;
+            return null;
         }
         stations.add(src);
         if(contains(src,dest)){
             stations.add(dest);
-            return true;
+            allPathsFound.add(new LinkedList<String>(stations));
+            return stations;
         }
 
+        int size = allPathsFound.size();
+
         for(Path p : paths) {
-            if(p.src.equals(src) && visited.indexOf(p.dest) == -1) {
-                visited.add(p.dest);
-                if (findPath(p.dest, dest, stations,visited)) {
-                    return true;
+            if(p.src.equals(src) && visitedCities.indexOf(p.dest) == -1) {
+                if(stations.size() == 0){
+                    stations.add(src);
+                }
+                visitedCities.add(p.dest);
+                if (findPath(p.dest, dest, stations) !=null) {
+                    if(allPathsFound.size() == size+1){
+                        stations.clear();
+                    }
+                    else{
+                        return stations;
+                    }
                 }
             }
         }
 
+        if(allPathsFound.size() == size+1){
+            return stations;
+        }
         for(Path p : paths) {
-            if(p.dest.equals(src)) {
-                if(findPath(p.src, dest, stations,visited)){
-                    return true;
+            if(p.dest.equals(src) && visitedCities.indexOf(p.src) == -1) {
+               if(stations.size() == 0){
+                    stations.add(src);
                 }
-                else {
-                    stations.remove(stations.size()-1);
+                visitedCities.add(p.src);
+                if(findPath(p.src, dest, stations) != null){
+                    if(allPathsFound.size() == size+1){
+                        stations.clear();
+                    }
+                    else{
+                        return stations;
+                    }
                 }
             }
         }
-        return false;
+        return null;
     }
 
     private boolean isCityASource(String city) {
@@ -93,19 +124,11 @@ class Map {
 		return;
 	}
 
-    public static List<String> reversePath(List<String> stations) {
-		List<String> reversed = new LinkedList<String>();
-		int size = stations.size();
-		for(String station : stations) {
-			reversed.add(stations.get(--size));
-		}
-		return reversed;
-	}
-
 	public void setup(){
 		this.addPath("Bangalore","Singapore");
 		this.addPath("Singapore","Seoul");
 		this.addPath("Singapore","Dubai");
+        this.addPath("Dubai","Seoul");
 		this.addPath("Seoul","Beijing");
 		this.addPath("Beijing","Tokyo");
         this.addPath("Chennai","Rajasthan");
